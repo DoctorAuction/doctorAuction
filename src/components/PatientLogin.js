@@ -18,6 +18,10 @@ const PatientLogin = () => {
   };
 
   const patientData = () => {
+    // if (symptom === "" || money === "") {
+    //   alert("Please input in your form!");
+    //   return;
+    // }
     const data = { symptom: symptom, money: money };
     console.log(data);
   };

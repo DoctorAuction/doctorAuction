@@ -1,20 +1,17 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import FormControl from "react-bootstrap/FormControl";  
+import FormControl from "react-bootstrap/FormControl";
 import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
 
-
-
 const DocSignup = () => {
-
-  function handleSubmit(event){
+  function handleSubmit(event) {
     event.preventDefault();
     const dataObj = {};
-    for (let i = 0; i < event.target.length - 1; i++){
+    for (let i = 0; i < event.target.length - 1; i++) {
       // console.log("input",event.target[i])
-      dataObj[event.target[i].id] = event.target[i].value
+      dataObj[event.target[i].id] = event.target[i].value;
     }
     console.log(dataObj);
   }
@@ -26,39 +23,35 @@ const DocSignup = () => {
         <Button variant="primary">Back to Home</Button>
       </Link>
 
-    <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <InputGroup id="doc_sign_up_InputGroup">
           <InputGroup.Prepend>
-            <InputGroup.Text >Name</InputGroup.Text>
+            <InputGroup.Text>Name</InputGroup.Text>
           </InputGroup.Prepend>
-        <FormControl placeholder="ex) Yoko" id="name"/>
-  
-       </InputGroup>
+          <FormControl placeholder="ex) Yoko" id="name" />
+        </InputGroup>
 
         <InputGroup>
           <InputGroup.Prepend>
-              <InputGroup.Text >Speciality</InputGroup.Text>
-            </InputGroup.Prepend>
-            <FormControl placeholder="ex) Dermatology" id="speciality"/>
+            <InputGroup.Text>Speciality</InputGroup.Text>
+          </InputGroup.Prepend>
+          <FormControl placeholder="ex) Dermatology" id="speciality" />
         </InputGroup>
 
         <InputGroup>
-          <InputGroup.Prepend>  
-          <InputGroup.Text >Graduation Year</InputGroup.Text>
+          <InputGroup.Prepend>
+            <InputGroup.Text>Graduation Year</InputGroup.Text>
           </InputGroup.Prepend>
-          <FormControl placeholder="2002" id="graduation_year"/>
+          <FormControl placeholder="2002" id="graduation_year" />
         </InputGroup>
-          <Link to="/doctorTop">
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
-          </Link>
+        <Link to="/doctorTop">
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </Link>
       </Form>
-
     </>
   );
-  
-}
-  
+};
 
 export default DocSignup;
