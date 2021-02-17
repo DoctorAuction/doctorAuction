@@ -2,79 +2,106 @@ import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import db from "../server/database";
-// import FormControl from "react-bootstrap/FormControl";  
-// import InputGroup from "react-bootstrap/InputGroup";
-// import Form from "react-bootstrap/Form";
-
-
+import Modal from "react-bootstrap/Modal";
 
 const DocTop = () => {
-
-    const [dummyData, setDummyData] = useState([
-        {id:1, name:"Hiroki", symptoms:"headache", price:5000},
-        {id:2, name:"Shota", symptoms:"backache", price:9000}]);
-    const [dummyDataTag, setDummyDataTag] = useState([]);
-    
+  const [DataTag, setDataTag] = useState([]);
   const [doctors, setDoctors] = useState([]);
+  const [show, setShow] = useState(false);
+  const [chosenConsult, setChosenConsult] = useState();
+  const [forRerendering, setForRerendering] = useState(0);
 
-    useEffect(() => {
-        // const newTag = []
-        // console.log(dummyData)
-        // for (const post of dummyData){
-        //     newTag.push(
-        //     <article id={post.id} key={post.id}>
-        //         <p>{post.id}</p>
-        //         <h2>{post.symptoms}</h2>
-        //         <h3>{post.name}</h3>
-        //         </article>);
-        // }
-        // setDummyDataTag(newTag);
-        // get all Consult data, only example
-      async function showData() {
-        await db
-          .ref("Consult")
-          .orderByKey()
-          .once("value", function (snapshot) {
-            const data = [];
-            snapshot.forEach((child) => {
-              const childKey = child.key;
-              const childData = child.val();
-              data.push({[childKey]:childData});
-            });
-            setDoctors(data);
-          });
-      
-      // console.log(doctors);
+  function handleClose() {setShow(false)};
+
+  async function handleAccept() {
+    await db.ref(`consult/${chosenConsult}`).update({accepted:true});
+    setForRerendering(forRerendering+1);
+    setShow(false);
+  }
+
+  async function showData() {
+    await db
+      .ref("consult")
+      .orderByKey()
+      .once("value", function (snapshot) {
+        const data = [];
+        snapshot.forEach((child) => {
+          const childKey = child.key;
+          const childData = child.val();
+          data.push({[childKey]:childData});
+        });
+        setDoctors(data);
+      });
+  }
+
+  useEffect(() => {
+    showData();
+  }, [forRerendering])
+
+
+  function handleAcceptButton(event){
+    const consultId = event.target.parentNode.id
+ 
+    setChosenConsult(consultId);
+    setShow(true);
+  }
+
+  useEffect(() => {      
+    const newTagsArr = [];
+    for (const consult of doctors){
+      const consultId = Object.keys(consult)[0];  
+
+      if(!consult[consultId].accepted) {
+        
+      const consultDiv = []
+
+      consultDiv.push(<p key={consultId}>Id: {consultId}</p>)
+      for(const key in consult[consultId]){
+        consultDiv.push(
+          <p key={consultId + key}>{key}: {consult[consultId][key]}</p>
+        )
       }
-      showData();
+      newTagsArr.push(
+      <div key={consultId + "div"} className="consultDiv" id={consultId}>
+        <Button variant="outline-success" className="accepet_button" onClick={handleAcceptButton}>Accept this consult
+        </Button>
+        {consultDiv}
+        </div>
+      )
+      };
 
-    }, [])
-
-    useEffect(() => {      
-      const newTagsArr = [];
-      for (const consult of doctors){
-        const consultId = Object.keys(consult)[0];
-        const consultDiv = []
-
-        consultDiv.push(<p key={consultId}>Id: {consultId}</p>)
-        for(const key in consult[consultId]){
-          consultDiv.push(
-            <p key={consultId + key}>{key}: {consult[consultId][key]}</p>
-          )
-        }
-        newTagsArr.push(<div key={consultId + "div"} className="consultDiv">{consultDiv}</div>)
-      }
-      setDummyDataTag(newTagsArr);
-      
-    }, [doctors])
+    }
+    setDataTag(newTagsArr);
+    
+  }, [doctors])
 
   return (
     <>
       <h1>Here is Doctor Top page!!!</h1>
       <Link to="/">
         <Button variant="primary">Back to Home</Button>
+      </Link>{" "}
+      <Link to="/docTop">
+        <Button variant="primary">a list of consults accept by the doc</Button>
       </Link>
-      {dummyDataTag}
+      
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Confermation</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Would you like to accept this consult?
+          {/* {chosenConsult} */}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            No
+          </Button>
+          <Button variant="primary" onClick={handleAccept}>
+            Accept this consult
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      {DataTag}
     </>
   );
 }

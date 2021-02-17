@@ -48,7 +48,7 @@ const DocSignup = () => {
           </InputGroup.Prepend>
           <FormControl placeholder="2002" id="graduation_year"/>
         </InputGroup>
-          <Link to="/doctorTop">
+          <Link to="/docTop">
             <Button variant="primary" type="submit">
               Submit
             </Button>
