@@ -34,26 +34,36 @@ const Home = () => {
             Log in
           </Button>
         </Link>
-        <Button variant="success" onClick={handleClick} className="doctorLogin">
-          Sign up
-        </Button>
+        <Link to="/doctorSignup">
+          <Button
+            variant="success"
+            onClick={handleClick}
+            className="doctorLogin"
+          >
+            Sign up
+          </Button>
+        </Link>
       </div>
       <h1>For Patient</h1>
       <div className="text-right">
-        <Button
-          variant="primary"
-          onClick={handleClick}
-          className="patiantLogin"
-        >
-          Log in
-        </Button>
-        <Button
-          variant="success"
-          onClick={handleClick}
-          className="patientLogin"
-        >
-          Sign up
-        </Button>
+        <Link to="/patientLogin">
+          <Button
+            variant="primary"
+            onClick={handleClick}
+            className="patiantLogin"
+          >
+            Log in
+          </Button>
+        </Link>
+        <Link to="/patientSignup">
+          <Button
+            variant="success"
+            onClick={handleClick}
+            className="patientLogin"
+          >
+            Sign up
+          </Button>
+        </Link>
       </div>
       <br />
       {toggle()}

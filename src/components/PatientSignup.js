@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
-const DocLogin = () => {
+const PatientSignup = () => {
   return (
     <>
-      <h1>Here is Doctor Login Page!!!</h1>
+      <h1>Here is Patient Signup page!!!</h1>
       <Link to="/">
         <Button variant="primary">Back to Home</Button>
       </Link>
@@ -13,4 +13,4 @@ const DocLogin = () => {
   );
 };
 
-export default DocLogin;
+export default PatientSignup;
