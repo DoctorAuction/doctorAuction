@@ -9,6 +9,7 @@ import PatientSignup from "./components/PatientSignup";
 import Consulting from "./components/Consulting";
 import Doctor from "./components/Doctor";
 import DocTop from "./components/DocTop";
+import DocAcceptedList from "./components/DocAcceptedList";
 
 import GetData from "./components/GetData";
 
@@ -25,6 +26,7 @@ function App() {
         <Route exact path="/doctor" component={Doctor} />
         <Route exact path="/docTop" component={DocTop} />
         <Route exact path="/getData" component={GetData} />
+        <Route exact path="/DocAcceptedList" component={DocAcceptedList} />
       </div>
     </Router>
   );
