@@ -36,7 +36,7 @@ const Consulting = () => {
           <h1 className="title">Hello shota san!</h1>;
           <div className="consultingcard">
             <Card style={{ width: "30rem", height: "30rem" }}>
-              <Card.Img variant="top" src={img2} height="50%" width="90%" />
+              <Card.Img variant="top" src={img2} height="60%" width="90%" />
               <Card.Body>
                 <Card.Title>Your application is not adopted yet</Card.Title>
                 <Card.Text>

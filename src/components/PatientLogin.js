@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import firebase from "../server/database";
 import "./Login.css";
+const moment = require("moment");
 
 const PatientLogin = () => {
   const [symptom, setSymptom] = useState("");
@@ -23,7 +24,14 @@ const PatientLogin = () => {
     //   alert("Please input in your form!");
     //   return;
     // }
-    const data = { symptom: symptom, money: money };
+    const time = moment().format("YYYY-MM-DD HH:MM");
+
+    const data = {
+      symptom: symptom,
+      money: money,
+      accepted: false,
+      time: time,
+    };
     const consultData = firebase.database().ref("consult");
     consultData.push(data);
   };
