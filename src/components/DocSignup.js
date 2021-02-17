@@ -53,10 +53,8 @@ const DocSignup = () => {
             </Button>
           </Link>
       </Form>
-
     </>
   );
-  
 }
   
 
