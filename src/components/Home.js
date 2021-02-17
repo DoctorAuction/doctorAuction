@@ -54,10 +54,7 @@ const Home = () => {
                   <Card.Img variant="top" src={img2} height="60%" width="50%" />
                   <Card.Body>
                     <Card.Title>For Patient Here</Card.Title>
-                    <Card.Text>
-                      Your application is not selected. You may be change your
-                      cost or cancel.
-                    </Card.Text>
+                    <Card.Text></Card.Text>
                     <Link to="/patientLogin">
                       <Button
                         variant="primary"
