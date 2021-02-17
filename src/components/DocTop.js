@@ -57,10 +57,13 @@ const DocTop = () => {
 
       consultDiv.push(<p key={consultId}>Id: {consultId}</p>)
       for(const key in consult[consultId]){
-        consultDiv.push(
-          <p key={consultId + key}>{key}: {consult[consultId][key]}</p>
-        )
+        if(key !== 'accepted'){
+          consultDiv.push(
+            <p key={consultId + key}>{key}: {consult[consultId][key]}</p>
+          )
+        }
       }
+      
       newTagsArr.push(
       <div key={consultId + "div"} className="consultDiv" id={consultId}>
         <Button variant="outline-success" className="accepet_button" onClick={handleAcceptButton}>Accept this consult
@@ -69,7 +72,6 @@ const DocTop = () => {
         </div>
       )
       };
-
     }
     setDataTag(newTagsArr);
     
@@ -89,8 +91,8 @@ const DocTop = () => {
         <Modal.Header closeButton>
           <Modal.Title>Confermation</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Would you like to accept this consult?
-          {/* {chosenConsult} */}
+        <Modal.Body>Would you like to accept this consult?<br></br>
+          ID: {chosenConsult}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
