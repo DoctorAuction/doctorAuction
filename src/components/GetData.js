@@ -50,14 +50,21 @@ const GetData = () => {
       <form>
         <button
           onClick={() => {
-            //delete Consult data.
-            //db.ref("Consult/consult100").remove();
-
             //update Consult data.
             db.ref("Consult/consult100").update(consultUpdate);
           }}
         >
           update consultation status
+        </button>
+      </form>
+      <form>
+        <button
+          onClick={() => {
+            //delete Consult data.
+            db.ref("Consult/consult100").remove();
+          }}
+        >
+          delete consultation
         </button>
       </form>
     </div>
