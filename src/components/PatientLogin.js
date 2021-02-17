@@ -52,7 +52,7 @@ const PatientLogin = () => {
         />
         <p className="errorMsg"></p>
         <div className="btnContainer">
-          <Link to="/doctor" className="btn1">
+          <Link to="/patientconsulting" className="btn1">
             <Button variant="success" onClick={patientData}>
               Apply
             </Button>

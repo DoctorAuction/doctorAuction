@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Diggle from "../image/img.jpg";
 import { Link } from "react-router-dom";
 import "./Home.css";
 

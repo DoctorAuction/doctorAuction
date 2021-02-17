@@ -1,0 +1,37 @@
+.consulting {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url("../image/Waiting-for-Someone,-Anyone-HD-Wallpaper-Background-Image-.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-left: 300px;
+}
+
+.consulting .title {
+  color: aliceblue;
+  text-align: center;
+  font-weight: bold;
+  font-size: 50px;
+  padding-right: 300px;
+  padding-top: 100px;
+}
+
+.consulting .consultingcard {
+  padding-left: 180px;
+}
+
+.consulting .consultingcard {
+  animation: SlideIn 1.6s;
+}
+
+@keyframes SlideIn {
+  0% {
+    opacity: 0; /*初期状態では透明に*/
+    transform: translateX(64px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
