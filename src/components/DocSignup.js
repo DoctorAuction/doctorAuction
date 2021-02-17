@@ -13,7 +13,6 @@ const DocSignup = () => {
     event.preventDefault();
     const dataObj = {};
     for (let i = 0; i < event.target.length - 1; i++){
-      // console.log("input",event.target[i])
       dataObj[event.target[i].id] = event.target[i].value
     }
     console.log(dataObj);
@@ -33,7 +32,7 @@ const DocSignup = () => {
           </InputGroup.Prepend>
         <FormControl placeholder="ex) Yoko" id="name"/>
   
-       </InputGroup>
+        </InputGroup>
 
         <InputGroup>
           <InputGroup.Prepend>
@@ -48,16 +47,14 @@ const DocSignup = () => {
           </InputGroup.Prepend>
           <FormControl placeholder="2002" id="graduation_year"/>
         </InputGroup>
-          <Link to="/doctorTop">
+          <Link to="/docTop">
             <Button variant="primary" type="submit">
               Submit
             </Button>
           </Link>
       </Form>
-
     </>
   );
-  
 }
   
 
