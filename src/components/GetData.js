@@ -4,6 +4,7 @@ import db from "../server/database";
 const GetData = () => {
   const [doctors, setDoctors] = useState([]);
   useEffect(() => {
+    // get all Consult data, only example
     async function showData() {
       await db
         .ref("Consult")
@@ -22,10 +23,15 @@ const GetData = () => {
   }, []);
   console.log(doctors);
   const newConsult = {
-    doctor_state: {
-      doctor1: "pending",
-    },
-    patient_id: 1,
+    doctor1: "pending",
+    doctor2: "pending",
+    doctor3: "pending",
+    doctor4: "pending",
+    patient_id: 2,
+  };
+
+  const consultUpdate = {
+    doctor3: "accept",
   };
   return (
     <div>
@@ -34,10 +40,25 @@ const GetData = () => {
       <form>
         <button
           onClick={() => {
-            //const newPostKey = db.ref("Consults");
+            //post new Consult data.
             db.ref("Consult/consult100").set(newConsult);
           }}
-        ></button>
+        >
+          set new Cosultation
+        </button>
+      </form>
+      <form>
+        <button
+          onClick={() => {
+            //delete Consult data.
+            //db.ref("Consult/consult100").remove();
+
+            //update Consult data.
+            db.ref("Consult/consult100").update(consultUpdate);
+          }}
+        >
+          update consultation status
+        </button>
       </form>
     </div>
   );
