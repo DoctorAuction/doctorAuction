@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import firebase from "../server/database";
+import db from "../server/database";
 import "./Login.css";
 const moment = require("moment");
 
@@ -32,7 +32,7 @@ const PatientLogin = () => {
       accepted: false,
       time: time,
     };
-    const consultData = firebase.database().ref("consult");
+    const consultData = db.ref("consult");
     consultData.push(data);
   };
 
