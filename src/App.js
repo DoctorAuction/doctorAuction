@@ -7,6 +7,7 @@ import DocSignUp from "./components/DocSignup";
 import PatientLogin from "./components/PatientLogin";
 import PatientSignup from "./components/PatientSignup";
 import Doctor from "./components/Doctor";
+import DoctorTop from "./components/DocTop";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route exact path="/patientLogin" component={PatientLogin} />
         <Route exact path="/patientSignup" component={PatientSignup} />
         <Route exact path="/doctor" component={Doctor} />
+        <Route exact path="/doctorTop" component={DoctorTop} />
       </div>
     </Router>
   );

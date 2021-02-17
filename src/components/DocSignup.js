@@ -1,4 +1,4 @@
-import React, {setState} from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import FormControl from "react-bootstrap/FormControl";  
@@ -48,9 +48,11 @@ const DocSignup = () => {
           </InputGroup.Prepend>
           <FormControl placeholder="2002" id="graduation_year"/>
         </InputGroup>
-        <Button variant="primary" type="submit">
-            Submit
-          </Button>
+          <Link to="/doctorTop">
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+          </Link>
       </Form>
 
     </>
