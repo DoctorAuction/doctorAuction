@@ -1,4 +1,3 @@
-import DocSignUp from './components/DocSignUp';
 import "./App.css";
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
