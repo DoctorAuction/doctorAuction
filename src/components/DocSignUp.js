@@ -5,10 +5,15 @@ import FormControl from "react-bootstrap/FormControl";
 import InputGroup from "react-bootstrap/InputGroup";
 
 
-function DocSignUp() {
-  function handleSubmit(){
-    console.log("clicked")
-  }
+
+const DocSignup = () => {
+
+  function handleSubmit(event){
+    event.preventDefault();
+    const dataObj = {};
+    for (let i = 0; i < event.target.length - 1; i++){
+      dataObj[event.target[i].id] = event.target[i].value
+    }
   
     return (
       <div className="DocSignUp">
