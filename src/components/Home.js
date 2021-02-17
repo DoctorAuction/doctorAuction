@@ -80,6 +80,16 @@ const Home = () => {
           </Row>
         </Container>
       </div>
+      <br />
+      <Link to="/getData">
+          <Button
+            variant="success"
+            onClick={handleClick}
+            className="getData"
+          >
+            getData
+          </Button>
+        </Link>
     </>
   );
 };

@@ -5,3 +5,9 @@
 .doctorLogin {
   position: right;
 }
+
+.consultDiv {
+  border-style: solid;
+  border-radius: 8px;
+  margin: 20px;
+}
