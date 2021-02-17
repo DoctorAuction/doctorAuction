@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import firebase from "../server/database";
 import "./Login.css";
+const moment = require("moment");
 
 const PatientLogin = () => {
   const [symptom, setSymptom] = useState("");
@@ -18,8 +20,20 @@ const PatientLogin = () => {
   };
 
   const patientData = () => {
-    const data = { symptom: symptom, money: money };
-    console.log(data);
+    // if (symptom === "" || money === "") {
+    //   alert("Please input in your form!");
+    //   return;
+    // }
+    const time = moment().format("YYYY-MM-DD HH:MM");
+
+    const data = {
+      symptom: symptom,
+      money: money,
+      accepted: false,
+      time: time,
+    };
+    const consultData = firebase.database().ref("consult");
+    consultData.push(data);
   };
 
   return (
@@ -46,7 +60,7 @@ const PatientLogin = () => {
         />
         <p className="errorMsg"></p>
         <div className="btnContainer">
-          <Link to="/doctor" className="btn1">
+          <Link to="/patientconsulting" className="btn1">
             <Button variant="success" onClick={patientData}>
               Apply
             </Button>

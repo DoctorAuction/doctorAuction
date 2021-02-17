@@ -2,7 +2,7 @@
   width: 100%;
   min-height: 100vh;
   padding: 0 20px;
-  background-image: url("../image/doctorForHome.jpg");
+  background-image: url("../image/medical-hero.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -19,10 +19,6 @@
 
 .Home .doctext {
   font-weight: bold;
-}
-
-.docbtn {
-  padding: 10px;
 }
 
 .Home .doctorLogin {

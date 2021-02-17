@@ -1,4 +1,5 @@
 import firebase from "firebase";
+
 const firebaseConfig = {
   apiKey: "AIzaSyC2c4GatfxKIkJMvk4QS8onTFwo410-8b0",
   authDomain: "doctorauction-aa0fc.firebaseapp.com",
@@ -12,5 +13,5 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-const db = firebase.database();
-export default db;
+// const db = firebase.database();
+export default firebase;

@@ -6,6 +6,7 @@ import DocLogin from "./components/DocLogin";
 import DocSignUp from "./components/DocSignup";
 import PatientLogin from "./components/PatientLogin";
 import PatientSignup from "./components/PatientSignup";
+import Consulting from "./components/Consulting";
 import Doctor from "./components/Doctor";
 import DocTop from "./components/DocTop";
 
@@ -20,6 +21,7 @@ function App() {
         <Route exact path="/doctorSignup" component={DocSignUp} />
         <Route exact path="/patientLogin" component={PatientLogin} />
         <Route exact path="/patientSignup" component={PatientSignup} />
+        <Route exact path="/patientconsulting" component={Consulting} />
         <Route exact path="/doctor" component={Doctor} />
         <Route exact path="/docTop" component={DocTop} />
         <Route exact path="/getData" component={GetData} />
