@@ -9,9 +9,11 @@ import PatientSignup from "./components/PatientSignup";
 import Doctor from "./components/Doctor";
 import DoctorTop from "./components/DocTop";
 
+import GetData from "./components/GetData";
+
 function App() {
   return (
-   <Router>
+    <Router>
       <div className="App">
         <Route exact path="/" component={Home} />
         <Route exact path="/doctorLogin" component={DocLogin} />
@@ -20,6 +22,7 @@ function App() {
         <Route exact path="/patientSignup" component={PatientSignup} />
         <Route exact path="/doctor" component={Doctor} />
         <Route exact path="/doctorTop" component={DoctorTop} />
+        <Route exact path="/getData" component={GetData} />
       </div>
     </Router>
   );
