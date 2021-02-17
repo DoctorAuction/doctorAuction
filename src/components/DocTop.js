@@ -79,11 +79,11 @@ const DocTop = () => {
 
   return (
     <>
-      <h1>Here is Doctor Top page!!!</h1>
+      <h1>Here is Doctor's Top page!!!</h1>
       <Link to="/">
         <Button variant="primary">Back to Home</Button>
       </Link>{" "}
-      <Link to="/docTop">
+      <Link to="/docAcceptedList">
         <Button variant="primary">a list of consults accept by the doc</Button>
       </Link>
       
