@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import firebase from "../server/database";
 import "./Login.css";
 
 const PatientLogin = () => {
@@ -23,7 +24,8 @@ const PatientLogin = () => {
     //   return;
     // }
     const data = { symptom: symptom, money: money };
-    console.log(data);
+    const consultData = firebase.database().ref("consult");
+    consultData.push(data);
   };
 
   return (
