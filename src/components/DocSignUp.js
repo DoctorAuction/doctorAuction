@@ -21,7 +21,6 @@ const DocSignup = () => {
   return (
     <>
       <h1>Here is Doctor Signup page!!!</h1>
-      { ? :}
       <Link to="/">
         <Button variant="primary">Back to Home</Button>
       </Link>
@@ -33,13 +32,6 @@ const DocSignup = () => {
           </InputGroup.Prepend>
         <FormControl placeholder="ex) Yoko" id="name"/>
   
-            {/* <a>Name</a>
-            <input type="text" placeholder="Name"></input><br></br>
-            <a>Graduation Year</a>
-            <input type="text" placeholder="Graduation Year"></input><br></br>
-            <a>Speciality</a>
-            <input type="text" placeholder="Speciality"></input><br></br>
-            <input type="button" onClick={handleSubmit} value="Submit"></input> */}
         </InputGroup>
 
         <InputGroup>
