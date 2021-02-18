@@ -107,7 +107,7 @@ export default function CheckoutForm() {
             {" "}
             Stripe dashboard.
           </a> 
-          <Link to="patientLogin">
+          <Link to="/form">
           <Button variant="primary">
             Go back to Consulting Form
           </Button>

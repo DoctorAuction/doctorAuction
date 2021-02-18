@@ -8,7 +8,7 @@
   min-height: 100vh;
   padding: 0 20px;
   display: flex;
-  background-image: url("../image/doctor.jpg");
+  background-image: url("../../image/doctor.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -43,14 +43,6 @@
 .login .loginContainer .text {
   padding-top: 50px;
 }
-/* .login .loginContainer .btnContainer p span {
-  color: yellow;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  margin-left: 5px;
-  cursor: pointer;
-  transition: all 400ms ease-in-out;
-} */
 
 .login button {
   border: none;
