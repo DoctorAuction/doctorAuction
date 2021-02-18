@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Consulting.css";
+import "./css/Consulting.css";
 import { Card, Button } from "react-bootstrap";
 import img1 from "../image/Succeed.jpg";
 import img2 from "../image/waiting.jpg";

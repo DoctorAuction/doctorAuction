@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import db from "../server/database";
-import "./Login.css";
+import "./css/Login.css";
 const moment = require("moment");
 
-const PatientLogin = () => {
+const Form = () => {
   const [symptom, setSymptom] = useState("");
   const [money, setMoney] = useState("");
 
@@ -74,4 +74,4 @@ const PatientLogin = () => {
   );
 };
 
-export default PatientLogin;
+export default Form;

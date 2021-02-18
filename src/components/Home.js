@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Card, Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
-import "./Home.css";
+import "./css/Home.css";
 import img1 from "../image/how-to-find-a-doctor-in-croatia.jpg";
 import img2 from "../image/patient.jpg";
 
