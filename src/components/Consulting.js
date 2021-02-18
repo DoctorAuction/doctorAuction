@@ -6,7 +6,7 @@ import img2 from "../image/waiting.jpg";
 import{ Link } from "react-router-dom";
 
 const Consulting = () => {
-  const [result, setResult] = useState(false);
+  const [result, setResult] = useState(true);
 
   const toggleResult = () => {
     setResult(!result);

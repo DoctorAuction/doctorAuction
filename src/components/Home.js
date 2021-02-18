@@ -28,8 +28,7 @@ const Home = () => {
                     <Card.Img variant="top" src={img1} height="60%" />
                     <Card.Body>
                       <Card.Title>For Doctors Here</Card.Title>
-                      <Card.Text>Your application is addopted by</Card.Text>
-                      <Link to="/doctorLogin">
+                      <Link to="/docTop">
                         <Button variant="primary" className="doctorLogin">
                           Log in
                         </Button>

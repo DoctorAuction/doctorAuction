@@ -33,6 +33,7 @@ export default function CheckoutForm() {
           setClientSecret(data.clientSecret);
         });
     }, []);
+
     const cardStyle = {
       style: {
         base: {
@@ -56,9 +57,11 @@ export default function CheckoutForm() {
       setDisabled(event.empty);
       setError(event.error ? event.error.message : "");
     };
+
     const handleSubmit = async ev => {
       ev.preventDefault();
       setProcessing(true);
+      console.log("here")
       const payload = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: elements.getElement(CardElement)

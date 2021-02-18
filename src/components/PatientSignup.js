@@ -51,9 +51,11 @@ const PatientSignup = () => {
             <option>Other</option>
           </Form.Control>
         </InputGroup>
+        <Link to="/patientconsulting">
           <Button variant="primary" type="submit">
             Submit
           </Button>
+          </Link>
       </Form>
     </>
   );
