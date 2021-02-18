@@ -43,13 +43,17 @@ const Consulting = () => {
               <Card.Body>
                 <Card.Title>Your application is not adopted yet</Card.Title>
                 <Card.Text>
-                  Your application is not selected. You may be change your cost
+                  Your application is not selected. You may change your cost
                   or cancel.
                 </Card.Text>
-                <Button variant="warning">Change cost</Button>
-                <Button variant="danger" onClick={toggleResult}>
-                  Cancel
-                </Button>
+                <Button variant="warning">Change cost</Button>{" "}
+
+                {/* TODO  make cancel button to delete the apply */}
+                <Link to="/patientLogin">
+                  <Button variant="danger" >
+                    Cancel
+                  </Button>
+                </Link>
               </Card.Body>
             </Card>
           </div>

@@ -5,16 +5,18 @@ import db from "../server/database";
 import Modal from "react-bootstrap/Modal";
 
 const DocTop = () => {
+  console.log(db);
   const [DataTag, setDataTag] = useState([]);
   const [doctors, setDoctors] = useState([]);
   const [show, setShow] = useState(false);
   const [chosenConsult, setChosenConsult] = useState();
   const [forRerendering, setForRerendering] = useState(0);
+  const [docId, setDocId] = useState(12345)
 
   function handleClose() {setShow(false)};
 
   async function handleAccept() {
-    await db.ref(`consult/${chosenConsult}`).update({accepted:true});
+    await db.ref(`consult/${chosenConsult}`).update({accepted:true, doctor:docId});
     setForRerendering(forRerendering+1);
     setShow(false);
   }

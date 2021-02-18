@@ -51,7 +51,7 @@ const PatientLogin = () => {
           onChange={handleSetSympton}
         />
         <p className="errorMsg"></p>
-        <label>How much money do you pay?</label>
+        <label>How much money do you want pay?</label>
         <input
           type="tel"
           required
