@@ -1,26 +1,33 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import db from "../server/database";
 import Modal from "react-bootstrap/Modal";
 
 const DocTop = () => {
+  console.log();
   const [DataTag, setDataTag] = useState([]);
   const [doctors, setDoctors] = useState([]);
   const [show, setShow] = useState(false);
   const [chosenConsult, setChosenConsult] = useState();
   const [forRerendering, setForRerendering] = useState(0);
 
-  function handleClose() {setShow(false)};
+  function handleClose() {
+    setShow(false);
+  }
 
   async function handleAccept() {
-    await db.ref(`consult/${chosenConsult}`).update({accepted:true});
-    setForRerendering(forRerendering+1);
+    await db
+      .database()
+      .ref(`consult/${chosenConsult}`)
+      .update({ accepted: true });
+    setForRerendering(forRerendering + 1);
     setShow(false);
   }
 
   async function showData() {
     await db
+      .database()
       .ref("consult")
       .orderByKey()
       .once("value", function (snapshot) {
@@ -28,7 +35,7 @@ const DocTop = () => {
         snapshot.forEach((child) => {
           const childKey = child.key;
           const childData = child.val();
-          data.push({[childKey]:childData});
+          data.push({ [childKey]: childData });
         });
         setDoctors(data);
       });
@@ -36,46 +43,50 @@ const DocTop = () => {
 
   useEffect(() => {
     showData();
-  }, [forRerendering])
+  }, [forRerendering]);
 
+  function handleAcceptButton(event) {
+    const consultId = event.target.parentNode.id;
 
-  function handleAcceptButton(event){
-    const consultId = event.target.parentNode.id
- 
     setChosenConsult(consultId);
     setShow(true);
   }
 
-  useEffect(() => {      
+  useEffect(() => {
     const newTagsArr = [];
-    for (const consult of doctors){
-      const consultId = Object.keys(consult)[0];  
+    for (const consult of doctors) {
+      const consultId = Object.keys(consult)[0];
 
-      if(!consult[consultId].accepted) {
-        
-      const consultDiv = []
+      if (!consult[consultId].accepted) {
+        const consultDiv = [];
 
-      consultDiv.push(<p key={consultId}>Id: {consultId}</p>)
-      for(const key in consult[consultId]){
-        if(key !== 'accepted'){
-          consultDiv.push(
-            <p key={consultId + key}>{key}: {consult[consultId][key]}</p>
-          )
+        consultDiv.push(<p key={consultId}>Id: {consultId}</p>);
+        for (const key in consult[consultId]) {
+          if (key !== "accepted") {
+            consultDiv.push(
+              <p key={consultId + key}>
+                {key}: {consult[consultId][key]}
+              </p>
+            );
+          }
         }
+
+        newTagsArr.push(
+          <div key={consultId + "div"} className="consultDiv" id={consultId}>
+            <Button
+              variant="outline-success"
+              className="accepet_button"
+              onClick={handleAcceptButton}
+            >
+              Accept this consult
+            </Button>
+            {consultDiv}
+          </div>
+        );
       }
-      
-      newTagsArr.push(
-      <div key={consultId + "div"} className="consultDiv" id={consultId}>
-        <Button variant="outline-success" className="accepet_button" onClick={handleAcceptButton}>Accept this consult
-        </Button>
-        {consultDiv}
-        </div>
-      )
-      };
     }
     setDataTag(newTagsArr);
-    
-  }, [doctors])
+  }, [doctors]);
 
   return (
     <>
@@ -86,12 +97,12 @@ const DocTop = () => {
       <Link to="/docAcceptedList">
         <Button variant="primary">a list of consults accept by the doc</Button>
       </Link>
-      
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Confermation</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Would you like to accept this consult?<br></br>
+        <Modal.Body>
+          Would you like to accept this consult?<br></br>
           ID: {chosenConsult}
         </Modal.Body>
         <Modal.Footer>
@@ -106,5 +117,5 @@ const DocTop = () => {
       {DataTag}
     </>
   );
-}
+};
 export default DocTop;
