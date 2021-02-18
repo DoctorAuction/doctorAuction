@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import {CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
 import {Link} from 'react-router-dom';
-import { Button } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 
 
-export default function CheckoutForm() {
+export default function CheckoutForm(props) {
     const [succeeded, setSucceeded] = useState(false);
     const [error, setError] = useState(null);
     const [processing, setProcessing] = useState('');
@@ -78,6 +78,12 @@ export default function CheckoutForm() {
       }
     };
     return (
+      <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
       <form id="payment-form" onSubmit={handleSubmit}>
         <CardElement id="card-element" options={cardStyle} onChange={handleChange} />
         <button
@@ -114,5 +120,6 @@ export default function CheckoutForm() {
           </Link>
         </p>
       </form>
+      </Modal>
     );
 }

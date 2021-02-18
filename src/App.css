@@ -20,6 +20,10 @@
   border-radius: 7px;
   padding: 40px;
 }
+.modal-content {
+  width: fit-content;
+}
+
 .result-message a {
   color: rgb(89, 111, 214);
   font-weight: 600;

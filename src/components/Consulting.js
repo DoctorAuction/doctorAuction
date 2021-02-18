@@ -4,12 +4,15 @@ import { Card, Button } from "react-bootstrap";
 import img1 from "../image/Succeed.jpg";
 import img2 from "../image/waiting.jpg";
 import{ Link } from "react-router-dom";
+import CheckoutForm from "./ChekoutForm";
 
 const Consulting = () => {
   const [result, setResult] = useState(false);
+  const [modalShow, setModalShow] = React.useState(false);///////////
 
   const toggleResult = () => {
-    setResult(!result);
+    // setResult(!result);
+    setModalShow(true)
   };
 
   const toggle = () => {
@@ -23,11 +26,15 @@ const Consulting = () => {
               <Card.Body>
                 <Card.Title>Your application is adopted!</Card.Title>
                 <Card.Text>Your application is addopted by {doc}</Card.Text>
-                <Link to="/CheckoutForm">
+                <CheckoutForm
+                  show={modalShow}
+                  onHide={() => setModalShow(false)}
+                />
+                {/* <Link to="/CheckoutForm"> */}
                   <Button variant="primary" onClick={toggleResult}>
                     Go to payment
                   </Button>
-                </Link>
+                {/* </Link> */}
               </Card.Body>
             </Card>
           </div>
