@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 import { Button, Card, Form, Alert, Container } from "react-bootstrap";
 import { useAuth } from "../context/AuthContext";
 import { Link, useHistory } from "react-router-dom";
-import db from "../server/database";
 
 export default function Signup() {
   const emailRef = useRef();
@@ -11,23 +10,8 @@ export default function Signup() {
   const { signup } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [firstname, setFirstname] = useState("");
-  const [email, setEmail] = useState("");
-
   const history = useHistory();
 
-  const handleLastname = (e) => {
-    setLastname(e.target.value);
-  };
-
-  const handleFirstname = (e) => {
-    setFirstname(e.target.value);
-  };
-
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -39,24 +23,12 @@ export default function Signup() {
       setError("");
       setLoading(true);
       await signup(emailRef.current.value, passwordRef.current.value);
-      history.push("/patientLogin");
+      history.push("/");
     } catch {
       setError("Failed to create an account");
     }
+
     setLoading(false);
-
-    const dataList = {
-      email: email,
-      firstname: firstname,
-      lastname: lastname,
-    };
-
-    const database = db.database().ref("DocProfile");
-    database.push(dataList);
-
-    setFirstname("");
-    setLastname("");
-    setEmail("");
   }
 
   return (
@@ -73,12 +45,7 @@ export default function Signup() {
               <Form onSubmit={handleSubmit}>
                 <Form.Group id="email">
                   <Form.Label>Email</Form.Label>
-                  <Form.Control
-                    type="email"
-                    ref={emailRef}
-                    required
-                    onChange={handleEmail}
-                  />
+                  <Form.Control type="email" ref={emailRef} required />
                 </Form.Group>
 
                 <Form.Group id="password">
@@ -94,23 +61,12 @@ export default function Signup() {
                     required
                   />
                 </Form.Group>
-                <Form.Group id="first-name">
-                  <Form.Label>First Name</Form.Label>
-                  <Form.Control type="text" onChange={handleFirstname} />
-                </Form.Group>
-                <Form.Group id="last-name">
-                  <Form.Label>Last Name</Form.Label>
-                  <Form.Control type="text" onChange={handleLastname} />
-                </Form.Group>
                 <Button disabled={loading} className="w-100" type="submit">
                   Sign Up
                 </Button>
               </Form>
             </Card.Body>
           </Card>
-          <div className="w-100 text-center mt-2">
-            Already have an account ? <Link to="login">Log In</Link>
-          </div>
         </div>
       </Container>
     </>
