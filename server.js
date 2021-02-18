@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 // This is your real test secret API key.
 const stripe = require("stripe")("sk_test_51IM2LwDWsBSLiHxJWKE2r4AmUg2WXiAzNFNXAFR7hBFW2JhKNxZTtNEWghxK8OeYpP7mtr5LQDqIfORA1z2I92XJ00iQEqUDN8");
-app.use(express.static("."));
+// app.use(express.static("."));
 app.use(express.json());
 const calculateOrderAmount = items => {
   // Replace this constant with a calculation of the order's amount

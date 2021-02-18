@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
+import {Link} from 'react-router-dom';
+import { Button } from "react-bootstrap";
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
@@ -18,14 +20,14 @@ export default function CheckoutForm() {
 
     useEffect(() => {
       // Create PaymentIntent as soon as the page loads
-      window
-        .fetch("/create-payment-intent", {
-          method: "POST", 
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({items: [{ id: "xl-tshirt" }]})
-        })
+
+      window.fetch("http://localhost:4242/create-payment-intent", {
+        method: "POST", 
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({items: [{ id: "xl-tshirt" }]}),
+      })
         .then(res => {
           return res.json();
         })
@@ -61,7 +63,6 @@ export default function CheckoutForm() {
     const handleSubmit = async ev => {
       ev.preventDefault();
       setProcessing(true);
-      console.log("here")
       const payload = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: elements.getElement(CardElement)
@@ -105,82 +106,13 @@ export default function CheckoutForm() {
           >
             {" "}
             Stripe dashboard.
-          </a> Refresh the page to pay again.
+          </a> 
+          <Link to="patientLogin">
+          <Button variant="primary">
+            Go back to Consulting Form
+          </Button>
+          </Link>
         </p>
       </form>
     );
 }
-
-
-
-
-
-
-
-
-
-// function CheckoutForm(){
-//     const stripe = useStripe();
-//     const elements = useElements();
-  
-//     const handleSubmit = async (event) => {
-//       // Block native form submission.
-//       event.preventDefault();
-
-//       console.log("cardsubmit", event.target)
-  
-//       if (!stripe || !elements) {
-//         // Stripe.js has not loaded yet. Make sure to disable
-//         // form submission until Stripe.js has loaded.
-//         return;
-//       }
-  
-//       // Get a reference to a mounted CardElement. Elements knows how
-//       // to find your CardElement because there can only ever be one of
-//       // each type of element.
-//       const cardElement = elements.getElement(CardElement);
-  
-//       // Use your card Element with other Stripe.js APIs
-//       const {error, paymentMethod} = await stripe.createPaymentMethod({
-//         type: 'card',
-//         card: cardElement,
-//       });
-  
-//       if (error) {
-//         console.log('[error]', error);
-//       } else {
-//         console.log('[PaymentMethod]', paymentMethod);
-//       }
-//     };
-  
-
-//     return (
-//     <div>
-//         <form onSubmit={handleSubmit}></form>
-//             <h1>checkout form</h1>
-            
-//             <CardElement
-//                 options={{
-//                     style: {
-//                     base: {
-//                         fontSize: '16px',
-//                         color: '#424770',
-//                         '::placeholder': {
-//                         color: '#aab7c4',
-//                         },
-//                     },
-//                     invalid: {
-//                         color: '#9e2146',
-//                     },
-//                     },
-//                 }}
-//             />
-//         <button type="submit" disabled={!stripe}>
-//             Pay
-//         </button>
-//     </div>
-//     );
-// };
-
-
-// export default CheckoutForm;
