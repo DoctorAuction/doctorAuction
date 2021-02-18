@@ -29,7 +29,7 @@ const Home = () => {
                     <Card.Body>
                       <Card.Title>For Doctors Here</Card.Title>
                       <Card.Text>Your application is addopted by</Card.Text>
-                      <Link to="/login">
+                      <Link to="/loginForDoc">
                         <Button variant="primary" className="doctorLogin">
                           Log in
                         </Button>
@@ -55,7 +55,7 @@ const Home = () => {
                   <Card.Body>
                     <Card.Title>For Patient Here</Card.Title>
                     <Card.Text></Card.Text>
-                    <Link to="/login">
+                    <Link to="/loginForPatient">
                       <Button
                         variant="primary"
                         onClick={handleClick}

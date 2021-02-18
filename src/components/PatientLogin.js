@@ -32,7 +32,7 @@ const PatientLogin = () => {
       accepted: false,
       time: time,
     };
-    const consultData = db.ref("consult");
+    const consultData = db.database().ref("consult");
     consultData.push(data);
   };
 

@@ -15,7 +15,8 @@ import GetData from "./components/GetData";
 import { Container } from "react-bootstrap";
 import Signup from "./fred/Signup";
 import Dashboard from "./fred/Dashboard";
-import Login from "./components/Login";
+import LoginForDoc from "./components/LoginForDoc";
+import LoginForPatient from "./components/LoginForPatient";
 import PrivateRoute from "./fred/PrivateRoute";
 import ForgotPassword from "./components/ForgotPassword";
 import UpdateProfile from "./fred/UpdateProfile.js";
@@ -36,7 +37,8 @@ function App() {
             <Route exact path="/docTop" component={DocTop} />
             <Route exact path="/getData" component={GetData} />
             <Route exact path="/DocAcceptedList" component={DocAcceptedList} />
-            <Route exact path="/login" component={Login} />
+            <Route exact path="/loginForDoc" component={LoginForDoc} />
+            <Route exact path="/loginForPatient" component={LoginForPatient} />
             <Route exact path="/forgot-password" component={ForgotPassword} />
           </div>
         </AuthProvider>
