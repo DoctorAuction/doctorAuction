@@ -3,6 +3,7 @@ import "./Consulting.css";
 import { Card, Button } from "react-bootstrap";
 import img1 from "../image/Succeed.jpg";
 import img2 from "../image/waiting.jpg";
+import{ Link } from "react-router-dom";
 
 const Consulting = () => {
   const [result, setResult] = useState(false);
@@ -22,9 +23,11 @@ const Consulting = () => {
               <Card.Body>
                 <Card.Title>Your application is adopted!</Card.Title>
                 <Card.Text>Your application is addopted by {doc}</Card.Text>
-                <Button variant="primary" onClick={toggleResult}>
-                  Go to payment
-                </Button>
+                <Link to="/CheckoutForm">
+                  <Button variant="primary" onClick={toggleResult}>
+                    Go to payment
+                  </Button>
+                </Link>
               </Card.Body>
             </Card>
           </div>

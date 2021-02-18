@@ -13,8 +13,16 @@ import DocAcceptedList from "./components/DocAcceptedList";
 
 import GetData from "./components/GetData";
 
+
+import {Elements} from '@stripe/react-stripe-js';
+import {loadStripe} from '@stripe/stripe-js';
+import CheckoutForm from "./components/ChekoutForm";
+
+const stripePromise = loadStripe('pk_test_51IM2LwDWsBSLiHxJUTQKbLGFqPTFzv1cuPkQo4vPZI6Fxb7hTddMLb6tPh5H5spkqqcaLXFCdHZ0K0ggIYX5fkr5002SgXW0pT');
+
 function App() {
   return (
+    <Elements stripe={stripePromise}>
     <Router>
       <div className="App">
         <Route exact path="/" component={Home} />
@@ -27,8 +35,10 @@ function App() {
         <Route exact path="/docTop" component={DocTop} />
         <Route exact path="/getData" component={GetData} />
         <Route exact path="/DocAcceptedList" component={DocAcceptedList} />
+        <Route exact path="/CheckoutForm" component={CheckoutForm} />
       </div>
     </Router>
+    </Elements>
   );
 }
 export default App;
