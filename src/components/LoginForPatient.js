@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { Button, Card, Form, Alert, Container } from "react-bootstrap";
 import { useAuth } from "../context/AuthContext";
 import { Link, useHistory } from "react-router-dom";
+import db from "../server/database";
 
 export default function Login() {
   const emailRef = useRef();
@@ -17,8 +18,31 @@ export default function Login() {
     try {
       setError("");
       setLoading(true);
+      let boo = false;
       await login(emailRef.current.value, passwordRef.current.value);
-      history.push("/form");
+      await db
+        .database()
+        .ref("PatientProfile")
+        .orderByKey()
+        .once("value", function (snapshot) {
+          snapshot.forEach((child) => {
+            if (child.val().email === emailRef.current.value) {
+              const childData = child.val();
+              boo = childData.form;
+            }
+          });
+        });
+      if (boo === false) {
+        await history.push({
+          pathname: "/form",
+          state: { text: emailRef.current.value },
+        });
+      } else {
+        await history.push({
+          pathname: "/patientconsulting",
+          state: { text: emailRef.current.value },
+        });
+      }
     } catch {
       setError("Failed to log in");
     }
