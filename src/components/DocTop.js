@@ -11,7 +11,7 @@ const DocTop = () => {
   const [show, setShow] = useState(false);
   const [chosenConsult, setChosenConsult] = useState();
   const [forRerendering, setForRerendering] = useState(0);
-  const [docId, setDocId] = useState(12345)
+  const [docId, setDocId] = useState(12345);
 
   function handleClose() {setShow(false)};
 
