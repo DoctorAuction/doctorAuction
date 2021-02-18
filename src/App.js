@@ -17,7 +17,7 @@ import Signup from "./fred/Signup";
 import Dashboard from "./fred/Dashboard";
 import Login from "./components/Login";
 import PrivateRoute from "./fred/PrivateRoute";
-import ForgotPassword from "./fred/ForgotPassword";
+import ForgotPassword from "./components/ForgotPassword";
 import UpdateProfile from "./fred/UpdateProfile.js";
 
 function App() {
@@ -37,6 +37,7 @@ function App() {
             <Route exact path="/getData" component={GetData} />
             <Route exact path="/DocAcceptedList" component={DocAcceptedList} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/forgot-password" component={ForgotPassword} />
           </div>
         </AuthProvider>
       </Router>
