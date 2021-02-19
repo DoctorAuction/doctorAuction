@@ -10,6 +10,7 @@ export default function Login() {
   const { login } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState("");
+  const [id, setId] = useState("");
   const history = useHistory();
 
   async function handleSubmit(e) {
@@ -28,6 +29,7 @@ export default function Login() {
           snapshot.forEach((child) => {
             if (child.val().email === emailRef.current.value) {
               const childData = child.val();
+              setId(child.key);
               boo = childData.form;
             }
           });
@@ -38,6 +40,7 @@ export default function Login() {
           state: { text: emailRef.current.value },
         });
       } else {
+        console.log(emailRef.current.value);
         await history.push({
           pathname: "/patientconsulting",
           state: { text: emailRef.current.value },

@@ -55,6 +55,7 @@ const Form = (props) => {
       money: money,
       accepted: false,
       time: time,
+      email: props.location.state.text,
     };
     const consultData = db.database().ref("consult");
     consultData.push(data);

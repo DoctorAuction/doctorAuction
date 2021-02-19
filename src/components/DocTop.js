@@ -23,6 +23,10 @@ const DocTop = () => {
       .update({ accepted: true });
     setForRerendering(forRerendering + 1);
     setShow(false);
+    await db
+      .database()
+      .ref(`PatientProfile/${chosenConsult}`)
+      .update({ accepted: true });
   }
 
   async function showData() {
