@@ -38,8 +38,12 @@ export default function Signup() {
     try {
       setError("");
       setLoading(true);
+      setEmail(emailRef.current.value);
       await signup(emailRef.current.value, passwordRef.current.value);
-      history.push("/patientLogin");
+      await history.push({
+        pathname: "/form",
+        state: { text: email },
+      });
     } catch {
       setError("Failed to create an account");
     }
@@ -49,9 +53,11 @@ export default function Signup() {
       email: email,
       firstname: firstname,
       lastname: lastname,
+      form: false,
+      accept: false,
     };
 
-    const database = db.database().ref("DocProfile");
+    const database = db.database().ref("PatientProfile");
     database.push(dataList);
 
     setFirstname("");
