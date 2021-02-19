@@ -72,7 +72,7 @@ const Consulting = (props) => {
           <div className="consultingcard">
             <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>
-                <Modal.Title>Confermation</Modal.Title>
+                <Modal.Title>Confirmation</Modal.Title>
               </Modal.Header>
               <Modal.Body>
                 Would you like to cancel this consult?<br></br>
