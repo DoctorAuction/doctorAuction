@@ -7,14 +7,6 @@ import img1 from "../image/how-to-find-a-doctor-in-croatia.jpg";
 import img2 from "../image/patient.jpg";
 
 const Home = () => {
-  const [click, setClick] = useState(false);
-  const [open, setOpen] = useState(false);
-
-  const handleClick = () => {
-    console.log("Clicked!");
-    setOpen(!open);
-  };
-
   return (
     <>
       <div className="Home">
@@ -35,11 +27,7 @@ const Home = () => {
                         </Button>
                       </Link>
                       <Link to="/doctorSignup">
-                        <Button
-                          variant="success"
-                          onClick={handleClick}
-                          className="doctorLogin"
-                        >
+                        <Button variant="success" className="doctorLogin">
                           Sign up
                         </Button>
                       </Link>
@@ -56,20 +44,12 @@ const Home = () => {
                     <Card.Title>For Patient Here</Card.Title>
                     <Card.Text></Card.Text><br></br>
                     <Link to="/loginForPatient">
-                      <Button
-                        variant="primary"
-                        onClick={handleClick}
-                        className="patiantLogin"
-                      >
+                      <Button variant="primary" className="patiantLogin">
                         Log in
                       </Button>
                     </Link>
                     <Link to="/patientSignup">
-                      <Button
-                        variant="success"
-                        onClick={handleClick}
-                        className="patientLogin"
-                      >
+                      <Button variant="success" className="patientLogin">
                         Sign up
                       </Button>
                     </Link>

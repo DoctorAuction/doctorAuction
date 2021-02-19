@@ -38,8 +38,16 @@ export default function Signup() {
     try {
       setError("");
       setLoading(true);
+      setEmail(emailRef.current.value);
       await signup(emailRef.current.value, passwordRef.current.value);
-      history.push("/form");
+// <<<<<<< HEAD
+//       history.push("/form");
+// =======
+      await history.push({
+        pathname: "/form",
+        state: { text: email },
+      });
+// >>>>>>> 72a4ca951f6bd2666e3d5b2abfbd3dc2b71a9b40
     } catch {
       setError("Failed to create an account");
     }
@@ -49,9 +57,12 @@ export default function Signup() {
       email: email,
       firstname: firstname,
       lastname: lastname,
+      form: false,
+      accepted: false,
+      consult:{}
     };
 
-    const database = db.database().ref("DocProfile");
+    const database = db.database().ref("PatientProfile");
     database.push(dataList);
 
     setFirstname("");
