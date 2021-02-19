@@ -15,7 +15,6 @@ export default function Dashboard() {
   const history = useHistory();
 
   const handleClick = () => {
-    console.log("Clicked!");
     setOpen(!open);
   };
 

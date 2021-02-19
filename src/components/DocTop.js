@@ -18,9 +18,20 @@ const DocTop = () => {
   }
 
   async function handleAccept() {
-    await db
+    // await db
+    //   .database()
+    //   .ref(`consult/${chosenConsult}`)
+    //   .update({ accepted: true, doctor:docId});
+    // setForRerendering(forRerendering + 1);
+    // setShow(false);
+     await db
       .database()
-      .ref(`consult/${chosenConsult}`)
+      .ref(`PatientProfile/${chosenConsult}`)
+      .update({ accepted: true});
+
+      await db
+      .database()
+      .ref(`PatientProfile/${chosenConsult}/consult`)
       .update({ accepted: true, doctor:docId});
     setForRerendering(forRerendering + 1);
     setShow(false);
@@ -33,14 +44,14 @@ const DocTop = () => {
   async function showData() {
     await db
       .database()
-      .ref("consult")
+      .ref("PatientProfile")
       .orderByKey()
       .once("value", function (snapshot) {
         const data = [];
         snapshot.forEach((child) => {
           const childKey = child.key;
           const childData = child.val();
-          data.push({ [childKey]: childData });
+          data.push({ [childKey]: childData.consult });
         });
         setDoctors(data);
       });
@@ -62,7 +73,7 @@ const DocTop = () => {
     for (const consult of doctors) {
       const consultId = Object.keys(consult)[0];
 
-      if (!consult[consultId].accepted) {
+      if (!consult[consultId].accepted) { 
         const consultDiv = [];
 
         consultDiv.push(<p key={consultId}>Id: {consultId}</p>);

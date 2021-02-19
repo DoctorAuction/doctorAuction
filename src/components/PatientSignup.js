@@ -15,7 +15,6 @@ const PatientSignup = () => {
       // console.log("input",event.target[i])
       dataObj[event.target[i].id] = event.target[i].value
     }
-    console.log(dataObj);
   }
 
   return (
