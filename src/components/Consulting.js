@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./css/Consulting.css";
-import { Card, Button, Modal } from "react-bootstrap";
+import { Card, Button, Modal, Form } from "react-bootstrap";
 import img1 from "../image/Succeed.jpg";
 import img2 from "../image/waiting.jpg";
 import db from "../server/database";
@@ -11,11 +11,16 @@ const Consulting = (props) => {
   const [result, setResult] = useState(false);
   const [id, setId] = useState("");
   const [show, setShow] = useState(false);
+  const [show1, setShow1] = useState(false);
   const history = useHistory();
 
   function handleClose() {
     setShow(false);
   }
+
+  const handleShow1 = () => {
+    setShow1(!show1);
+  };
 
   const backToForm = () => {
     history.push("/loginForPatient");
@@ -81,6 +86,27 @@ const Consulting = (props) => {
                 </Button>
               </Modal.Footer>
             </Modal>
+            <Modal show={show1} onHide={handleShow1}>
+              <Modal.Header closeButton>
+                <Modal.Title>Change your setting money</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <Form.Group>
+                  <Form.Control
+                    type="text"
+                    placeholder="Change setting money"
+                  />
+                </Form.Group>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="primary" onClick={backToForm}>
+                  Change
+                </Button>
+                <Button variant="secondary" onClick={handleShow1}>
+                  Back
+                </Button>
+              </Modal.Footer>
+            </Modal>
             <Card style={{ width: "30rem", height: "30rem" }}>
               <Card.Img variant="top" src={img2} height="60%" width="90%" />
               <Card.Body>
@@ -89,7 +115,9 @@ const Consulting = (props) => {
                   Your application is not selected. You may be change your cost
                   or cancel.
                 </Card.Text>
-                <Button variant="warning">Change cost</Button>
+                <Button variant="warning" onClick={handleShow1}>
+                  Change cost
+                </Button>
                 <Button variant="danger" onClick={handleCancel}>
                   Cancel
                 </Button>
