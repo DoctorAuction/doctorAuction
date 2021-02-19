@@ -5,11 +5,13 @@ import { Link } from "react-router-dom";
 import "./css/Home.css";
 import img1 from "../image/how-to-find-a-doctor-in-croatia.jpg";
 import img2 from "../image/patient.jpg";
+// import LOGO from "../image/LOGO.jpg"
 
 const Home = () => {
   return (
     <>
       <div className="Home">
+        {/* <img src={img1}/> */}
         <h1 className="title">Doctor Auction</h1>
         <Container>
           <Row>

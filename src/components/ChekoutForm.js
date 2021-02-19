@@ -112,7 +112,7 @@ export default function CheckoutForm(props) {
           >
             {" "}
             Stripe dashboard.
-          </a> 
+          </a>  
           <Link to="/form">
           <Button variant="primary">
             Go back to Consulting Form

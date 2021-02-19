@@ -116,7 +116,7 @@ const Form = (props) => {
               onChange={handleSetSympton}
             />
             <p className="errorMsg"></p>
-            <label>How much money do you pay?</label>
+            <label>How much money do you want to pay?</label>
             <input
               type="tel"
               required

@@ -73,6 +73,7 @@ const DocTop = () => {
     for (const consult of doctors) {
       const consultId = Object.keys(consult)[0];
 
+      if(consult[consultId]){
       if (!consult[consultId].accepted) { 
         const consultDiv = [];
 
@@ -100,6 +101,7 @@ const DocTop = () => {
           </div>
         );
       }
+    }
     }
     setDataTag(newTagsArr);
   }, [doctors]);

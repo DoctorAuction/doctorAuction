@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./css/Consulting.css";
 import { Card, Button, Modal, Form } from "react-bootstrap";
 import img1 from "../image/Succeed.jpg";
-import img2 from "../image/waiting.jpg";
+import img2 from "../image/imagesaaaa.jpg";
 // <<<<<<< HEAD
 // import{ Link } from "react-router-dom";
 // import CheckoutForm from "./ChekoutForm";
@@ -68,8 +68,8 @@ const toggleResult = () => {
             <Card style={{ width: "30rem", height: "30rem" }}>
               <Card.Img variant="top" src={img1} />
               <Card.Body>
-                <Card.Title>Your application is adopted!</Card.Title>
-                <Card.Text>Your application is addopted by {doc}</Card.Text>
+                <Card.Title>Your application is accepted!</Card.Title>
+                <Card.Text>Your application is accepted by {doc}</Card.Text>
 
 <CheckoutForm
                   show={modalShow}
@@ -105,7 +105,7 @@ const toggleResult = () => {
             </Modal>
             <Modal show={show1} onHide={handleShow1}>
               <Modal.Header closeButton>
-                <Modal.Title>Change your setting money</Modal.Title>
+                <Modal.Title>Change your setting payment</Modal.Title>
               </Modal.Header>
               <Modal.Body>
                 <Form.Group>
@@ -127,9 +127,9 @@ const toggleResult = () => {
             <Card style={{ width: "30rem", height: "30rem" }}>
               <Card.Img variant="top" src={img2} height="60%" width="90%" />
               <Card.Body>
-                <Card.Title>Your application is not adopted yet</Card.Title>
+                <Card.Title>Your application is pending.</Card.Title>
                 <Card.Text>
-                  Your application is not selected. You may change your cost
+                  You may change your payment
                   or cancel.
                 </Card.Text>
 {/* <<<<<<< HEAD
