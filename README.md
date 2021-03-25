@@ -1,3 +1,8 @@
+This was created during our time as a student at Code Chrysalis
+
+Web app
+https://doctorauction-2cbe8.firebaseapp.com/DocTop
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
