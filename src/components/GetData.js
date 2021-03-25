@@ -21,7 +21,7 @@ const GetData = () => {
     }
     showData();
   }, []);
-  console.log(doctors);
+  
   const newConsult = {
     doctor1: "pending",
     doctor2: "pending",

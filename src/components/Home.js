@@ -5,11 +5,13 @@ import { Link } from "react-router-dom";
 import "./css/Home.css";
 import img1 from "../image/how-to-find-a-doctor-in-croatia.jpg";
 import img2 from "../image/patient.jpg";
+// import LOGO from "../image/LOGO.jpg"
 
 const Home = () => {
   return (
     <>
       <div className="Home">
+        {/* <img src={img1}/> */}
         <h1 className="title">Doctor Auction</h1>
         <Container>
           <Row>
@@ -20,7 +22,7 @@ const Home = () => {
                     <Card.Img variant="top" src={img1} height="60%" />
                     <Card.Body>
                       <Card.Title>For Doctors Here</Card.Title>
-                      <Card.Text>Your application is addopted by</Card.Text>
+                      <br></br>
                       <Link to="/loginForDoc">
                         <Button variant="primary" className="doctorLogin">
                           Log in
@@ -42,7 +44,7 @@ const Home = () => {
                   <Card.Img variant="top" src={img2} height="60%" width="50%" />
                   <Card.Body>
                     <Card.Title>For Patient Here</Card.Title>
-                    <Card.Text></Card.Text>
+                    <Card.Text></Card.Text><br></br>
                     <Link to="/loginForPatient">
                       <Button variant="primary" className="patiantLogin">
                         Log in

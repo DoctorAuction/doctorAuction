@@ -2,13 +2,25 @@ import React, { useState, useEffect } from "react";
 import "./css/Consulting.css";
 import { Card, Button, Modal, Form } from "react-bootstrap";
 import img1 from "../image/Succeed.jpg";
-import img2 from "../image/waiting.jpg";
+import img2 from "../image/imagesaaaa.jpg";
+// <<<<<<< HEAD
+// import{ Link } from "react-router-dom";
+// import CheckoutForm from "./ChekoutForm";
+// =======
+import{ Link } from "react-router-dom";
+import CheckoutForm from "./ChekoutForm";
 import db from "../server/database";
 import { useHistory } from "react-router-dom";
+// >>>>>>> 72a4ca951f6bd2666e3d5b2abfbd3dc2b71a9b40
 
 const Consulting = (props) => {
-  console.log(props);
   const [result, setResult] = useState(false);
+const [modalShow, setModalShow] = React.useState(false);///////////
+
+const toggleResult = () => {
+  // setResult(!result);
+  setModalShow(true)
+}
   const [id, setId] = useState("");
   const [show, setShow] = useState(false);
   const [show1, setShow1] = useState(false);
@@ -35,11 +47,11 @@ const Consulting = (props) => {
       .orderByKey()
       .once("value", function (snapshot) {
         snapshot.forEach((child) => {
-          console.log(props.location);
           if (child.val().email === props.location.state.text) {
             const childData = child;
             setId(child.key);
-            setResult(childData.accepted);
+            setResult(childData.val().accepted);
+            console.log("childData.val()",childData.val().accepted)
           }
         });
       });
@@ -49,17 +61,23 @@ const Consulting = (props) => {
   }, []);
 
   const toggle = () => {
-    if (result === false) {
+    if (result === true) {
       return (
         <div className="consulting">
-          <h1 className="title">Hello shota san!</h1>;
           <div className="consultingcard">
             <Card style={{ width: "30rem", height: "30rem" }}>
               <Card.Img variant="top" src={img1} />
               <Card.Body>
-                <Card.Title>Your application is adopted!</Card.Title>
-                <Card.Text>Your application is addopted by {doc}</Card.Text>
-                <Button variant="primary">Go to payment</Button>
+                <Card.Title>Your application is accepted!</Card.Title>
+                <Card.Text>Your application is accepted by {doc}</Card.Text>
+
+<CheckoutForm
+                  show={modalShow}
+                  onHide={() => setModalShow(false)}
+                />
+                  <Button variant="primary" onClick={toggleResult}>
+                    Go to payment
+                  </Button>
               </Card.Body>
             </Card>
           </div>
@@ -68,7 +86,6 @@ const Consulting = (props) => {
     } else {
       return (
         <div className="consulting">
-          <h1 className="title">Hello shota san!</h1>;
           <div className="consultingcard">
             <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>
@@ -88,7 +105,7 @@ const Consulting = (props) => {
             </Modal>
             <Modal show={show1} onHide={handleShow1}>
               <Modal.Header closeButton>
-                <Modal.Title>Change your setting money</Modal.Title>
+                <Modal.Title>Change your setting payment</Modal.Title>
               </Modal.Header>
               <Modal.Body>
                 <Form.Group>
@@ -110,17 +127,27 @@ const Consulting = (props) => {
             <Card style={{ width: "30rem", height: "30rem" }}>
               <Card.Img variant="top" src={img2} height="60%" width="90%" />
               <Card.Body>
-                <Card.Title>Your application is not adopted yet</Card.Title>
+                <Card.Title>Your application is pending.</Card.Title>
                 <Card.Text>
-                  Your application is not selected. You may be change your cost
+                  You may change your payment
                   or cancel.
                 </Card.Text>
+{/* <<<<<<< HEAD
+                <Button variant="warning">Change cost</Button>
+
+                <Link to="/patientLogin">
+                  <Button variant="danger" >
+                    Cancel
+                  </Button>
+                </Link>
+======= */}
                 <Button variant="warning" onClick={handleShow1}>
                   Change cost
-                </Button>
+                </Button>{" "}
                 <Button variant="danger" onClick={handleCancel}>
                   Cancel
                 </Button>
+{/* >>>>>>> 72a4ca951f6bd2666e3d5b2abfbd3dc2b71a9b40 */}
               </Card.Body>
             </Card>
           </div>

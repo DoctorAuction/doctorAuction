@@ -1,11 +1,13 @@
 .consulting {
   width: 100%;
   min-height: 100vh;
-  background-image: url("../../image/Waiting-for-Someone\,-Anyone-HD-Wallpaper-Background-Image-.jpg");
+  background-image: url("../../image/waiting.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  padding-left: 300px;
+  /* padding-left: 300px; */
+  align-items: center;
+  padding: 200px;
 }
 
 .consulting .title {
@@ -17,12 +19,14 @@
   padding-top: 100px;
 }
 
-.consulting .consultingcard {
+/* .consulting .consultingcard {
   padding-left: 180px;
-}
+} */
 
 .consulting .consultingcard {
   animation: SlideIn 1.6s;
+  display: flex;
+  justify-content: center;
 }
 
 @keyframes SlideIn {

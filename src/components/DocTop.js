@@ -5,22 +5,34 @@ import db from "../server/database";
 import Modal from "react-bootstrap/Modal";
 
 const DocTop = () => {
-  console.log();
+
   const [DataTag, setDataTag] = useState([]);
   const [doctors, setDoctors] = useState([]);
   const [show, setShow] = useState(false);
   const [chosenConsult, setChosenConsult] = useState();
   const [forRerendering, setForRerendering] = useState(0);
+  const [docId, setDocId] = useState(12345);
 
   function handleClose() {
     setShow(false);
   }
 
   async function handleAccept() {
-    await db
+    // await db
+    //   .database()
+    //   .ref(`consult/${chosenConsult}`)
+    //   .update({ accepted: true, doctor:docId});
+    // setForRerendering(forRerendering + 1);
+    // setShow(false);
+     await db
       .database()
-      .ref(`consult/${chosenConsult}`)
-      .update({ accepted: true });
+      .ref(`PatientProfile/${chosenConsult}`)
+      .update({ accepted: true});
+
+      await db
+      .database()
+      .ref(`PatientProfile/${chosenConsult}/consult`)
+      .update({ accepted: true, doctor:docId});
     setForRerendering(forRerendering + 1);
     setShow(false);
     await db
@@ -32,14 +44,14 @@ const DocTop = () => {
   async function showData() {
     await db
       .database()
-      .ref("consult")
+      .ref("PatientProfile")
       .orderByKey()
       .once("value", function (snapshot) {
         const data = [];
         snapshot.forEach((child) => {
           const childKey = child.key;
           const childData = child.val();
-          data.push({ [childKey]: childData });
+          data.push({ [childKey]: childData.consult });
         });
         setDoctors(data);
       });
@@ -61,7 +73,8 @@ const DocTop = () => {
     for (const consult of doctors) {
       const consultId = Object.keys(consult)[0];
 
-      if (!consult[consultId].accepted) {
+      if(consult[consultId]){
+      if (!consult[consultId].accepted) { 
         const consultDiv = [];
 
         consultDiv.push(<p key={consultId}>Id: {consultId}</p>);
@@ -81,6 +94,7 @@ const DocTop = () => {
               variant="outline-success"
               className="accepet_button"
               onClick={handleAcceptButton}
+              id="docTop_accepet_button"
             >
               Accept this consult
             </Button>
@@ -89,11 +103,12 @@ const DocTop = () => {
         );
       }
     }
+    }
     setDataTag(newTagsArr);
   }, [doctors]);
 
   return (
-    <>
+    <div id="docTop-div">
       <h1>Here is Doctor's Top page!!!</h1>
       <Link to="/">
         <Button variant="primary">Back to Home</Button>
@@ -117,9 +132,9 @@ const DocTop = () => {
             Accept this consult
           </Button>
         </Modal.Footer>
-      </Modal>
+      </Modal><br></br><br></br>
       {DataTag}
-    </>
+    </div>
   );
 };
 export default DocTop;

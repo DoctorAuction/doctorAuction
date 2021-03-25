@@ -15,7 +15,6 @@ const PatientSignup = () => {
       // console.log("input",event.target[i])
       dataObj[event.target[i].id] = event.target[i].value
     }
-    console.log(dataObj)
   }
 
   return (
@@ -51,9 +50,11 @@ const PatientSignup = () => {
             <option>Other</option>
           </Form.Control>
         </InputGroup>
+        <Link to="/patientLogin">
           <Button variant="primary" type="submit">
             Submit
           </Button>
+          </Link>
       </Form>
     </>
   );

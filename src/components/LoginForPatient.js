@@ -35,12 +35,12 @@ export default function Login() {
           });
         });
       if (boo === false) {
+        
         await history.push({
           pathname: "/form",
           state: { text: emailRef.current.value },
         });
       } else {
-        console.log(emailRef.current.value);
         await history.push({
           pathname: "/patientconsulting",
           state: { text: emailRef.current.value },

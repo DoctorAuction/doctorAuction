@@ -11,16 +11,18 @@ const DocAcceptedList = () => {
   async function showData() {
     await db
       .database()
-      .ref("consult")
+      .ref("PatientProfile")
       .orderByKey()
       .once("value", function (snapshot) {
         const data = [];
         snapshot.forEach((child) => {
-          if (child.val().doctor === doctorId) {
+          if(child.val().consult) {
+          if (child.val().consult.doctor === doctorId) {
             const childKey = child.key;
-            const childData = child.val();
+            const childData = child.val().consult;
             data.push({ [childKey]: childData });
           }
+        }
         });
         setAcceptedList(data);
       });
