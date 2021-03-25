@@ -94,6 +94,7 @@ const DocTop = () => {
               variant="outline-success"
               className="accepet_button"
               onClick={handleAcceptButton}
+              id="docTop_accepet_button"
             >
               Accept this consult
             </Button>
@@ -107,7 +108,7 @@ const DocTop = () => {
   }, [doctors]);
 
   return (
-    <>
+    <div id="docTop-div">
       <h1>Here is Doctor's Top page!!!</h1>
       <Link to="/">
         <Button variant="primary">Back to Home</Button>
@@ -131,9 +132,9 @@ const DocTop = () => {
             Accept this consult
           </Button>
         </Modal.Footer>
-      </Modal>
+      </Modal><br></br><br></br>
       {DataTag}
-    </>
+    </div>
   );
 };
 export default DocTop;

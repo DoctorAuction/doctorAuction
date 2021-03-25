@@ -2,14 +2,14 @@ import firebase from "firebase";
 import "firebase/auth";
 
 const app = firebase.initializeApp({
-  apiKey: "AIzaSyC2c4GatfxKIkJMvk4QS8onTFwo410-8b0",
-  authDomain: "doctorauction-aa0fc.firebaseapp.com",
-  databaseURL: "https://doctorauction-aa0fc-default-rtdb.firebaseio.com",
-  projectId: "doctorauction-aa0fc",
-  storageBucket: "doctorauction-aa0fc.appspot.com",
-  messagingSenderId: "519972242480",
-  appId: "1:519972242480:web:1648723d757ceeebe959f5",
-  measurementId: "G-P4R7P1LCDR",
+  apiKey: "AIzaSyBek40qsfn9nQECt5ejU09uSh4Hji7b5bc",
+  authDomain: "doctorauction-2cbe8.firebaseapp.com",
+  databaseURL: "https://doctorauction-2cbe8-default-rtdb.firebaseio.com",
+  projectId: "doctorauction-2cbe8",
+  storageBucket: "doctorauction-2cbe8.appspot.com",
+  messagingSenderId: "776220455949",
+  appId: "1:776220455949:web:40d8b98949646efc915144",
+  measurementId: "G-PLZDHE54ET",
 });
 
 export const auth = app.auth();
