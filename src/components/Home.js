@@ -11,7 +11,6 @@ const Home = () => {
   return (
     <>
       <div className="Home">
-        {/* <img src={img1}/> */}
         <h1 className="title">Doctor Auction</h1>
         <Container>
           <Row>

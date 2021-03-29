@@ -3,22 +3,16 @@ import "./css/Consulting.css";
 import { Card, Button, Modal, Form } from "react-bootstrap";
 import img1 from "../image/Succeed.jpg";
 import img2 from "../image/imagesaaaa.jpg";
-// <<<<<<< HEAD
-// import{ Link } from "react-router-dom";
-// import CheckoutForm from "./ChekoutForm";
-// =======
 import{ Link } from "react-router-dom";
 import CheckoutForm from "./ChekoutForm";
 import db from "../server/database";
 import { useHistory } from "react-router-dom";
-// >>>>>>> 72a4ca951f6bd2666e3d5b2abfbd3dc2b71a9b40
 
 const Consulting = (props) => {
-  const [result, setResult] = useState(false);
-const [modalShow, setModalShow] = React.useState(false);///////////
+const [result, setResult] = useState(false);
+const [modalShow, setModalShow] = React.useState(false);
 
 const toggleResult = () => {
-  // setResult(!result);
   setModalShow(true)
 }
   const [id, setId] = useState("");
@@ -51,7 +45,6 @@ const toggleResult = () => {
             const childData = child;
             setId(child.key);
             setResult(childData.val().accepted);
-            console.log("childData.val()",childData.val().accepted)
           }
         });
       });
@@ -132,22 +125,13 @@ const toggleResult = () => {
                   You may change your payment
                   or cancel.
                 </Card.Text>
-{/* <<<<<<< HEAD
-                <Button variant="warning">Change cost</Button>
 
-                <Link to="/patientLogin">
-                  <Button variant="danger" >
-                    Cancel
-                  </Button>
-                </Link>
-======= */}
                 <Button variant="warning" onClick={handleShow1}>
                   Change cost
                 </Button>{" "}
                 <Button variant="danger" onClick={handleCancel}>
                   Cancel
                 </Button>
-{/* >>>>>>> 72a4ca951f6bd2666e3d5b2abfbd3dc2b71a9b40 */}
               </Card.Body>
             </Card>
           </div>

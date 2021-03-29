@@ -5,7 +5,6 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  /* padding-left: 300px; */
   align-items: center;
   padding: 200px;
 }
@@ -18,10 +17,6 @@
   padding-right: 300px;
   padding-top: 100px;
 }
-
-/* .consulting .consultingcard {
-  padding-left: 180px;
-} */
 
 .consulting .consultingcard {
   animation: SlideIn 1.6s;

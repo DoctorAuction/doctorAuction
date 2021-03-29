@@ -9,11 +9,7 @@
 .consultDiv {
   border-style: solid;
   border-radius: 8px;
-  /* max-width: fit-content; */
   margin: 0px 500px;
-
-  /* display: flex;
-  align-items: center; */
 }
 #docTop_accepet_button {
   margin: 20px;

@@ -25,25 +25,6 @@ const stripePromise = loadStripe('pk_test_51IM2LwDWsBSLiHxJUTQKbLGFqPTFzv1cuPkQo
 
 function App() {
   return (
-// <<<<<<< HEAD
-//     <Elements stripe={stripePromise}>
-//     <Router>
-//       <div className="App">
-//         <Route exact path="/" component={Home} />
-//         <Route exact path="/doctorLogin" component={DocLogin} />
-//         <Route exact path="/doctorSignup" component={DocSignUp} />
-//         <Route exact path="/patientLogin" component={PatientLogin} />
-//         <Route exact path="/patientSignup" component={PatientSignup} />
-//         <Route exact path="/patientconsulting" component={Consulting} />
-//         {/* <Route exact path="/doctor" component={Doctor} /> */}
-//         <Route exact path="/docTop" component={DocTop} />
-//         <Route exact path="/getData" component={GetData} />
-//         <Route exact path="/DocAcceptedList" component={DocAcceptedList} />
-//         <Route exact path="/CheckoutForm" component={CheckoutForm} />
-//       </div>
-//     </Router>
-//     </Elements>
-// =======
     <>
        <Elements stripe={stripePromise}>
       <Router>
@@ -66,7 +47,6 @@ function App() {
       </Router>
       </Elements>
     </>
-// >>>>>>> 6dd3f8d53f679807a0387cc53adca6e3808a241c
   );
 }
 export default App;

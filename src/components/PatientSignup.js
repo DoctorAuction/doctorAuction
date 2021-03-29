@@ -12,7 +12,6 @@ const PatientSignup = () => {
     event.preventDefault();
     const dataObj = {}
     for (let i = 0; i < event.target.length -1; i++){
-      // console.log("input",event.target[i])
       dataObj[event.target[i].id] = event.target[i].value
     }
   }

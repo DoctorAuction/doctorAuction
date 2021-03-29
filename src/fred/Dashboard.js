@@ -107,22 +107,3 @@ export default function Dashboard() {
   );
 }
 
-{
-  /* <br />
-        <Link to="/getData">
-          <Button variant="success" onClick={handleClick} className="getData">
-            getData
-          </Button>
-        </Link>
-      </>
-      <Card>
-        <Card.Body>
-          <h2 className="text-center mb-4">Profile</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
-          <strong>Email:</strong> {currentUser.email}
-          <strong>
-            <br />
-            Id:
-          </strong>{" "}
-          {currentUser.uid} */
-}
