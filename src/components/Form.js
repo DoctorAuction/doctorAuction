@@ -54,16 +54,6 @@ const Form = (props) => {
       state: {text: props.location.state.text}
     })
   }
-
-  // const patientData = () => {
-
- 
-  //   const consultData = db.database().ref("consult");
-  //   consultData.push(data);
-  //   handleAccept();
-
-  // };
-
   return (
     <>
       <div className="consultform">

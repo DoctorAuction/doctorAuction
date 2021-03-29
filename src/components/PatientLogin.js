@@ -18,10 +18,6 @@ const PatientLogin = () => {
   };
 
   const patientData = () => {
-    // if (symptom === "" || money === "") {
-    //   alert("Please input in your form!");
-    //   return;
-    // }
     const time = moment().format("YYYY-MM-DD HH:MM");
 
     const data = {

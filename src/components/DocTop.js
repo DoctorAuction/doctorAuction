@@ -18,12 +18,6 @@ const DocTop = () => {
   }
 
   async function handleAccept() {
-    // await db
-    //   .database()
-    //   .ref(`consult/${chosenConsult}`)
-    //   .update({ accepted: true, doctor:docId});
-    // setForRerendering(forRerendering + 1);
-    // setShow(false);
      await db
       .database()
       .ref(`PatientProfile/${chosenConsult}`)
